@@ -42,13 +42,9 @@ app.route("/api/books/:id").delete(async (req, res) => {
 }).put(async (req, res) => {
   console.log("update book id: " + req.params.id)
   const {
-    title,
-    author,
     note
   } = req.body
   let book = await Book.findById(req.params.id)
-  book.title = req.body.title
-  book.author = req.body.author
   book.note = req.body.note
   await book.save()
   res.json(book)

@@ -16,9 +16,9 @@ const theme = createTheme();
 export default function SignUp() {
     const [bookNote,setBookNote] = useState(
         {
-          bookName:"",
+          title:"",
           author:"",
-          notes:""
+          note:""
         }
     )
   const handleSubmit = (event) => {
@@ -38,73 +38,73 @@ export default function SignUp() {
     
   }
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          
-          <Typography component="h1" variant="h5">
-            BOOK
-          </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} >
-                <TextField
-                  autoComplete="given-name"
-                  name="BookName"
-                  required
-                  fullWidth
-                  id="BookName"
-                  label="BookName"
-                  value={bookNote.bookName}
-                  autoFocus
-                  onChange={handleChange}
-                />
-              </Grid>
-              
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="Author"
-                  label="Author"
-                  name="Author"
-                  value={bookNote.author}
-                  autoComplete="Author"
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="Notes"
-                  label="Notes"
-                  type="Notes"
-                  id="Notes"
-                  value={bookNote.notes}
-                  autoComplete="Notes"
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            
+            <Typography component="h1" variant="h5">
+              BOOK NOTE
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} >
+                  <TextField
+                    autoComplete="title"
+                    name="title"
+                    required
+                    fullWidth
+                    id="title"
+                    label="title"
+                    value={bookNote.title}
+                    autoFocus
+                    onChange={handleChange}
+                  />
+                </Grid>
                 
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="author"
+                    label="author"
+                    name="author"
+                    value={bookNote.author}
+                    autoComplete="sleepTime"
+                    onChange={handleChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="note"
+                    label="note"
+                    type="note"
+                    id="note"
+                    value={bookNote.note}
+                    autoComplete="new-note"
+                    onChange={handleChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  
+                </Grid>
               </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Record
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Record
             </Button>
             <Grid container justifyContent="flex-end">
               
