@@ -1,5 +1,6 @@
 const express = require("express")
 const app = express()
+const cors=require("cors")
 const PORT = 8000
 const connectDB = require("./config/db")
 const Book = require("./models/bookModels")
@@ -8,7 +9,7 @@ connectDB()
 
 //middleware is a function which chronically runs between request and response (req-middleware-res)
 app.use(express.json())
-
+app.use(cors());
 //This middleware used to take data from form
 app.use(express.urlencoded({
   extended: false

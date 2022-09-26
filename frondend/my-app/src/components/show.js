@@ -1,5 +1,4 @@
-// import axios from 'axios';
-import info from "./data"
+import axios from 'axios';
 import { useState } from "react";
 import "./style.css";
 // import styled from "styled-components"
@@ -10,9 +9,11 @@ import {FiPlus,FiMinus} from "react-icons/fi"
 export default function Display(props){
     const [infos, setInfos] = useState([])  
     const [clicked, setClicked] = useState(false);
-    function getData(){
-        setInfos(info)
-    }
+    const getData = async() =>{
+        const res = await axios.get("http://localhost:8000/api/books")
+        setInfos(res.data)
+        console.log(res.data)
+     }
     
     function toggle (index){
         if(clicked===index){
@@ -36,11 +37,11 @@ export default function Display(props){
             return (
                 <>
                 <div className="wrap" onClick={()=>toggle(index)} key={index}>
-                <h1> {e.book}</h1>
+                <h1 key={e._id}> {e.title} {e.author}</h1>
                 <span> { clicked===index ? <FiMinus/> :<FiPlus/>}</span>
                 </div>
                 {clicked === index ? (<div className="dropDown"
-                ><p> {e.notes} <button> Update</button></p>
+                ><p key={e._id}> {e.note} <button> Update</button></p>
                 </div>):null}
                 
                 </>
